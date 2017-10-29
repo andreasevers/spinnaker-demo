@@ -1,4 +1,4 @@
-package com.spinnakerdemo.spinnakerdemo;
+package com.spinnakerdemo.app;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
