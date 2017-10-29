@@ -11,9 +11,7 @@ public class DemoController {
 
     @RequestMapping("/demo")
     public String getView() throws InterruptedException {
-        System.out.println("Request started");
-        Thread.sleep(1000);
-        System.out.println("Request returned");
+//        Thread.sleep(1000);
         return "demo";
     }
 }
