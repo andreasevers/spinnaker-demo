@@ -16,6 +16,7 @@ public class DemoController {
                 .getHeaderValue();
 
         response.addHeader("Cache-Control", headerValue);
+        response.addHeader("Connection", "close");
 //        Thread.sleep(1000);
         return "demo";
     }
