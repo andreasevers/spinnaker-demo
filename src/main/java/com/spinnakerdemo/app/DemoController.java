@@ -1,5 +1,7 @@
 package com.spinnakerdemo.app;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.CacheControl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +12,8 @@ import java.util.concurrent.TimeUnit;
 @Controller
 public class DemoController {
 
+    Logger logger = LoggerFactory.getLogger(DemoController.class);
+
     @RequestMapping("/")
     public String getView(HttpServletResponse response) throws InterruptedException {
         String headerValue = CacheControl.maxAge(0, TimeUnit.SECONDS)
@@ -17,7 +21,7 @@ public class DemoController {
 
         response.addHeader("Cache-Control", headerValue);
         response.addHeader("Connection", "close");
-//        Thread.sleep(1000);
+        logger.info("Rick");
         return "demo";
     }
 }
