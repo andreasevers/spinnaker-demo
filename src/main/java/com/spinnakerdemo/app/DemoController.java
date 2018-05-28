@@ -15,13 +15,13 @@ public class DemoController {
     Logger logger = LoggerFactory.getLogger(DemoController.class);
 
     @RequestMapping("/")
-    public String getView(HttpServletResponse response) throws InterruptedException {
+    public String getView(HttpServletResponse response) {
         String headerValue = CacheControl.maxAge(0, TimeUnit.SECONDS)
                 .getHeaderValue();
 
         response.addHeader("Cache-Control", headerValue);
         response.addHeader("Connection", "close");
-        logger.info("Rick");
+//        logger.info("Meeseeks");
         return "demo";
     }
 }
