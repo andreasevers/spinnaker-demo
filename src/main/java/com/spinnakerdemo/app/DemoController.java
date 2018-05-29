@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 @Controller
 public class DemoController {
 
-    Logger logger = LoggerFactory.getLogger(DemoController.class);
+    private Logger logger = LoggerFactory.getLogger(DemoController.class);
 
     @RequestMapping("/")
     public String getView(HttpServletResponse response) {
