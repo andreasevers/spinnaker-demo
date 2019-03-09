@@ -25,4 +25,15 @@ public class DemoController {
         logger.info("Meeseeks");
         return "demo";
     }
+
+    @RequestMapping("/delayed")
+    public String getDelayedView(HttpServletResponse response) throws InterruptedException {
+        String headerValue = CacheControl.maxAge(0, SECONDS)
+                .getHeaderValue();
+        Thread.sleep(8000);
+        response.addHeader("Cache-Control", headerValue);
+        response.addHeader("Connection", "close");
+        logger.info("Meeseeks");
+        return "demo";
+    }
 }
