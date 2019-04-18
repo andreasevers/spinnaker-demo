@@ -2,4 +2,4 @@ language: java
 addons:
   artifacts:
     debug: true
-    paths: $(ls /target/spinnaker-demo*.jar | tr "\n" ":")
+    paths: $(ls target/spinnaker-demo*.jar)
