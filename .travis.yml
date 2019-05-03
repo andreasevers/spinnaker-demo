@@ -3,3 +3,5 @@ addons:
   artifacts:
     debug: true
     paths: $(ls target/spinnaker-demo*.jar)
+    target_paths:
+    - /${TRAVIS_REPO_SLUG}
