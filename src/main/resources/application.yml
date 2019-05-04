@@ -1,0 +1,21 @@
+spring.resources.chain.cache=false
+spring.resources.cache.period=0
+#server.tomcat.accesslog.enabled=true
+management:
+endpoints:
+enabled-by-default: true
+web:
+exposure:
+include: '*'
+endpoint:
+health:
+enabled: true
+show-details: always
+metrics:
+export:
+datadog:
+api-key: ${DATADOG_API_KEY}
+application-key: ${DATADOG_APPLICATION_KEY}
+host-tag: ${spring.application.name}
+step: 10s
+enabled: true
