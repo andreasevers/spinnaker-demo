@@ -22,6 +22,7 @@ public class DemoController {
     private int CHAOS = 0;
 
     @RequestMapping("/")
+    @Timed("rickandmorty.rendering.time")
     public String getView(HttpServletResponse response) {
         response.addHeader("Cache-Control", CacheControl.maxAge(0, SECONDS).getHeaderValue());
         response.addHeader("Connection", "close");
