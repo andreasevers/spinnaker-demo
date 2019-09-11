@@ -1,18 +1,10 @@
 language: java
 jdk: oraclejdk8
 dist: trusty
-notifications:
-  webhooks:
-    urls:
-      - https://api.spinnaker.demo.sanpablo.cf-app.com/webhooks/webhook/rickandmorty
-    on_success: always # default: always
-    on_failure: never # default: always
-    on_start: never # default: never
-    on_cancel: never # default: always
-    on_error: never # default: always
 addons:
   artifacts:
     debug: true
     paths: $(ls target/spinnaker-demo*.jar)
     target_paths:
     - /${TRAVIS_REPO_SLUG}
+after_script: curl -k -X POST https://api.spinnaker.demo.sanpablo.cf-app.com/webhooks/webhook/rickandmorty
