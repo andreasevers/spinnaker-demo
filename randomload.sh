@@ -4,7 +4,7 @@ number=$((RANDOM % range))
 
 while true
 do
-   http http://rickandmorty.apps.lropcf.pushto.cf | grep background
+   http rickandmorty.apps.sonoma.cf-app.com | grep background
    echo "Sleeping 0.$number seconds"
    sleep 0.$number
    number=$((RANDOM % range))
