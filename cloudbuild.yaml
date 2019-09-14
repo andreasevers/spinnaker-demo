@@ -2,5 +2,5 @@ steps:
 - name: 'gcr.io/cloud-builders/java/mvn'
   args: ['install']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=eu.gcr.io/$PROJECT_ID/spinnaker-demo:$REVISION_ID', '.']
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/spinnaker-demo:$REVISION_ID', '.']
 images: ['eu.gcr.io/$PROJECT_ID/spinnaker-demo:$REVISION_ID']
