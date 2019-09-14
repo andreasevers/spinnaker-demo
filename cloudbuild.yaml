@@ -3,4 +3,4 @@ steps:
   args: ['install']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '--tag=gcr.io/$PROJECT_ID/spinnaker-demo:$REVISION_ID', '.']
-images: ['eu.gcr.io/$PROJECT_ID/spinnaker-demo:$REVISION_ID']
+images: ['gcr.io/$PROJECT_ID/spinnaker-demo:$REVISION_ID']
