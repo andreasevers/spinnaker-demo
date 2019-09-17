@@ -1,8 +1,8 @@
 apiVersion: apps/v1beta2
-kind: Deployment
+kind: ReplicaSet
 metadata:
   name: spinnaker-demo
-  namespace: default
+  namespace: rickandmorty
   labels:
     source: demo
     stack: dev
@@ -28,9 +28,6 @@ spec:
           httpGet:
             path: /
             port: 8080
-        envFrom:
-        - configMapRef:
-            name: spinnaker-demo-config
 
 ---
 
@@ -38,7 +35,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: spinnaker-demo
-  namespace: default
+  namespace: rickandmorty
 spec:
   selector:
     source: demo
