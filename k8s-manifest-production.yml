@@ -21,6 +21,9 @@ spec:
       labels:
         source: demo
         app: spinnaker
+      annotations:
+        "moniker.spinnaker.io/application": spinnaker-demo
+        "moniker.spinnaker.io/cluster": prod
     spec:
       containers:
       - name: primary
