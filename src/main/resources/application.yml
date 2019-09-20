@@ -21,3 +21,6 @@ management:
         host-tag: ${spring.application.name}
         step: 10s
         enabled: true
+    web:
+      server:
+        auto-time-requests: true
