@@ -3,6 +3,9 @@ kind: ReplicaSet
 metadata:
   name: spinnaker-demo
   namespace: rickandmorty
+  annotations:
+    "moniker.spinnaker.io/application": spinnaker-demo
+    "moniker.spinnaker.io/cluster": dev
   labels:
     source: demo
     stack: dev

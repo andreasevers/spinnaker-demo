@@ -3,6 +3,10 @@ kind: ReplicaSet
 metadata:
   name: spinnaker-demo
   namespace: rickandmorty
+  annotations:
+    "moniker.spinnaker.io/application": spinnaker-demo
+    "moniker.spinnaker.io/cluster": prod
+    "moniker.spinnaker.io/stack": canary
   labels:
     source: demo
     stack: dev
