@@ -28,6 +28,17 @@ spec:
           httpGet:
             path: /
             port: 8080
+        env:
+          - name: DEPLOYMENT_TYPE
+            value: "DEVELOP"
+        volumeMounts:
+        - name: datadog
+          mountPath: "/etc/datadog-secret"
+          readOnly: true
+      volumes:
+      - name: datadog
+        secret:
+          secretName: datadog-secret
 
 ---
 
