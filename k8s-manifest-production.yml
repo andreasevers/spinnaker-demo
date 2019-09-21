@@ -5,7 +5,7 @@ metadata:
   namespace: rickandmorty
   annotations:
     "moniker.spinnaker.io/application": spinnaker-demo
-    "moniker.spinnaker.io/cluster": prod
+    "moniker.spinnaker.io/cluster": replicaSet prod
   labels:
     source: demo
     stack: dev
