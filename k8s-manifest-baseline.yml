@@ -12,7 +12,7 @@ spec:
   selector:
     matchLabels:
       source: demo
-      app: rickandmorty-baseline
+      app: rickandmorty
   template:
     metadata:
       labels:
