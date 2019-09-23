@@ -30,8 +30,6 @@ spec:
             path: /
             port: 8080
         env:
-          - name: DEPLOYMENT_TYPE
-            value: "CANARY"
           - name: DATADOG_API_KEY
             valueFrom:
               secretKeyRef:
@@ -42,6 +40,8 @@ spec:
               secretKeyRef:
                 key: DATADOG_APPLICATION_KEY
                 name: datadog-secret
+          - name: DEPLOYMENT_TYPE
+            value: "CANARY"
         volumeMounts:
         - name: datadog
           mountPath: "/etc/datadog-secret"
