@@ -52,7 +52,7 @@ metadata:
 spec:
   selector:
     source: demo
-    app: spinnaker-demo
+    app: rickandmorty
   ports:
   - protocol: TCP
     port: 80
