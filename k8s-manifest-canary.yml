@@ -1,7 +1,7 @@
 apiVersion: apps/v1beta2
 kind: ReplicaSet
 metadata:
-  name: spinnaker-demo-canary
+  name: rickandmorty-canary
   namespace: rickandmorty
   labels:
     source: demo
@@ -21,9 +21,8 @@ spec:
         version: canary
     spec:
       containers:
-      - name: primary
+      - name: rickandmorty
         image: gcr.io/cf-spinnaker/spinnaker-demo
-        name: rickandmorty
         ports:
         - containerPort: 8080
         readinessProbe:

@@ -21,9 +21,8 @@ spec:
         version: prod
     spec:
       containers:
-      - name: primary
+      - name: rickandmorty
         image: gcr.io/cf-spinnaker/spinnaker-demo
-        name: rickandmorty
         ports:
         - containerPort: 8080
         readinessProbe:
