@@ -1,33 +1,29 @@
 apiVersion: apps/v1beta2
 kind: ReplicaSet
 metadata:
-  name: spinnaker-demo
+  name: spinnaker-demo-prod
   namespace: rickandmorty
-  annotations:
-    "moniker.spinnaker.io/application": spinnaker-demo
-    "moniker.spinnaker.io/cluster": replicaSet prod
   labels:
     source: demo
-    stack: dev
-    app: spinnaker
+    stack: prod
+    app: spinnaker-demo-prod
 spec:
   replicas: 2
   selector:
     matchLabels:
       source: demo
-      app: spinnaker
+      app: spinnaker-demo-prod
   template:
     metadata:
       labels:
         source: demo
-        app: spinnaker
-      annotations:
-        "moniker.spinnaker.io/application": spinnaker-demo
-        "moniker.spinnaker.io/cluster": prod
+        app: spinnaker-demo
+        version: prod
     spec:
       containers:
       - name: primary
         image: gcr.io/cf-spinnaker/spinnaker-demo
+        name: spinnaker-demo
         ports:
         - containerPort: 8080
         readinessProbe:
@@ -56,7 +52,7 @@ metadata:
 spec:
   selector:
     source: demo
-    app: spinnaker
+    app: spinnaker-demo
   ports:
   - protocol: TCP
     port: 80
