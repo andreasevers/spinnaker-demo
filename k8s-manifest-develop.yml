@@ -1,23 +1,23 @@
 apiVersion: apps/v1beta2
 kind: ReplicaSet
 metadata:
-  name: spinnaker-demo-develop
+  name: rickandmorty-develop
   namespace: rickandmorty
   labels:
     source: demo
     stack: develop
-    app: spinnaker-demo-develop
+    app: rickandmorty-develop
 spec:
   replicas: 2
   selector:
     matchLabels:
       source: demo
-      app: spinnaker-demo-develop
+      app: rickandmorty-develop
   template:
     metadata:
       labels:
         source: demo
-        app: spinnaker-demo
+        app: rickandmorty
         version: develop
     spec:
       containers:
@@ -47,12 +47,12 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: spinnaker-demo
+  name: rickandmorty
   namespace: rickandmorty
 spec:
   selector:
     source: demo
-    app: spinnaker-demo
+    app: rickandmorty
   ports:
   - protocol: TCP
     port: 80
