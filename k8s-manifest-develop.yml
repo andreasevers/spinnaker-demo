@@ -33,15 +33,15 @@ spec:
           - name: DEPLOYMENT_TYPE
             value: "DEVELOP"
           - name: DATADOG_API_KEY
-              valueFrom:
-                secretKeyRef:
-                  key: DATADOG_API_KEY
-                  name: datadog-secret
+            valueFrom:
+              secretKeyRef:
+                key: DATADOG_API_KEY
+                name: datadog-secret
           - name: DATADOG_APPLICATION_KEY
-              valueFrom:
-                secretKeyRef:
-                  key: DATADOG_APPLICATION_KEY
-                  name: datadog-secret
+            valueFrom:
+              secretKeyRef:
+                key: DATADOG_APPLICATION_KEY
+                name: datadog-secret
         volumeMounts:
         - name: datadog
           mountPath: "/etc/datadog-secret"
