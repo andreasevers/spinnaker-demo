@@ -12,16 +12,16 @@ spec:
   selector:
     matchLabels:
       source: demo
-      app: rickandmorty
+      app: rickandmorty-prod
   template:
     metadata:
       labels:
         source: demo
-        app: rickandmorty
+        app: rickandmorty-prod
         version: prod
     spec:
       containers:
-      - name: rickandmorty
+      - name: rickandmorty-prod
         image: gcr.io/cf-spinnaker/spinnaker-demo
         ports:
         - containerPort: 8080
