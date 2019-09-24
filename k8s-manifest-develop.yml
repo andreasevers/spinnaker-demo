@@ -56,12 +56,12 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: rickandmorty
+  name: rickandmorty-develop
   namespace: rickandmorty
 spec:
   selector:
     source: demo
-    app: rickandmorty
+    app: rickandmorty-develop
   ports:
   - protocol: TCP
     port: 80
