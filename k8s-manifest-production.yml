@@ -6,22 +6,22 @@ metadata:
   labels:
     source: demo
     stack: prod
-    app: rickandmorty-prod
+    app: rickandmorty
 spec:
   replicas: 2
   selector:
     matchLabels:
       source: demo
-      app: rickandmorty-prod
+      app: rickandmorty
   template:
     metadata:
       labels:
         source: demo
-        app: rickandmorty-prod
+        app: rickandmorty
         version: prod
     spec:
       containers:
-      - name: rickandmorty-prod
+      - name: rickandmorty
         image: gcr.io/cf-spinnaker/spinnaker-demo
         ports:
         - containerPort: 8080
@@ -56,7 +56,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: rickandmorty
+  name: rickandmorty-prod
   namespace: rickandmorty
 spec:
   selector:

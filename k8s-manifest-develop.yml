@@ -6,22 +6,22 @@ metadata:
   labels:
     source: demo
     stack: develop
-    app: rickandmorty-develop
+    app: rickandmorty
 spec:
   replicas: 2
   selector:
     matchLabels:
       source: demo
-      app: rickandmorty-develop
+      app: rickandmorty
   template:
     metadata:
       labels:
         source: demo
-        app: rickandmorty-develop
+        app: rickandmorty
         version: develop
     spec:
       containers:
-      - name: rickandmorty-develop
+      - name: rickandmorty
         image: gcr.io/cf-spinnaker/spinnaker-demo
         ports:
         - containerPort: 8080
@@ -61,7 +61,7 @@ metadata:
 spec:
   selector:
     source: demo
-    app: rickandmorty-develop
+    app: rickandmorty
   ports:
   - protocol: TCP
     port: 80
