@@ -11,6 +11,7 @@ spec:
   replicas: 2
   strategy:
     type: RollingUpdate
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       source: demo

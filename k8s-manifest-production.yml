@@ -8,7 +8,10 @@ metadata:
     stack: prod
     app: rickandmorty
 spec:
-  replicas: 2
+  replicas: 2  
+  strategy:
+    type: RollingUpdate
+  revisionHistoryLimit: 4
   selector:
     matchLabels:
       source: demo
