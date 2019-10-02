@@ -11,8 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class MetricsConfig {
 
 	@Bean
-	public MeterRegistryCustomizer<MeterRegistry> metricsCommonTags(@Value("${DEPLOYMENT_TYPE:UNKNOWN}")
-																		String deploymentType) {
+	public MeterRegistryCustomizer<MeterRegistry> metricsCommonTags(@Value("${DEPLOYMENT_TYPE:UNKNOWN}") String deploymentType) {
 		// deploymentType comes from the Environment the app is running in
 		return registry -> registry.config().commonTags("deployment", deploymentType);
 	}
