@@ -17,7 +17,7 @@ public class DemoController {
 
     private Random randomGen = new Random();
 
-    private int CHAOS = 50;
+    private int CHAOS = 30;
 
     @RequestMapping("/")
     @Timed("rickandmorty.rendering.time")
