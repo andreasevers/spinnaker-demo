@@ -1,0 +1,72 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: rickandmorty-${VERSION}
+  namespace: rickandmorty
+  labels:
+    source: demo
+    stack: ${VERSION}
+    app: rickandmorty
+spec:
+  replicas: ${REPLICAS}
+  strategy:
+    type: RollingUpdate
+  revisionHistoryLimit: ${REV_HIST_LIMIT}
+  selector:
+    matchLabels:
+      source: demo
+      app: rickandmorty
+  template:
+    metadata:
+      labels:
+        source: demo
+        app: rickandmorty
+        version: ${VERSION}
+    spec:
+      containers:
+      - name: rickandmorty
+        image: gcr.io/cf-spinnaker/spinnaker-demo
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+        env:
+          - name: DATADOG_API_KEY
+            valueFrom:
+              secretKeyRef:
+                key: DATADOG_API_KEY
+                name: datadog-secret
+          - name: DATADOG_APPLICATION_KEY
+            valueFrom:
+              secretKeyRef:
+                key: DATADOG_APPLICATION_KEY
+                name: datadog-secret
+          - name: DEPLOYMENT_TYPE
+            value: ${DEPLOYMENT_TYPE}
+        volumeMounts:
+        - name: datadog
+          mountPath: "/etc/datadog-secret"
+          readOnly: true
+      volumes:
+      - name: datadog
+        secret:
+          secretName: datadog-secret
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: ${SERVICE}
+  namespace: rickandmorty
+spec:
+  selector:
+    source: demo
+    app: rickandmorty
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: LoadBalancer
