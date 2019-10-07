@@ -8,12 +8,13 @@ management:
     enabled-by-default: true
     web:
       exposure:
-        include: '*'
-    shutdown.enabled: false
+        include: '*'    
   endpoint:
     health:
       enabled: true
       show-details: always
+    shutdown:
+      enabled: false
   metrics:
     export:
       datadog:
