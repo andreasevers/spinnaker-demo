@@ -17,7 +17,7 @@ public class DemoController {
 
     private Random randomGen = new Random();
 
-    private int CHAOS = 0;
+    private int CHAOS = 20;
 
     @RequestMapping("/")
     @Timed("rickandmorty.rendering.time")
@@ -30,6 +30,6 @@ public class DemoController {
         } catch (InterruptedException e) {
         }
 
-        return "picklerick";
+        return "meeseeks";
     }
 }
